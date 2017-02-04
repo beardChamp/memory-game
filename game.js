@@ -1,7 +1,13 @@
 $(document).ready(function(){
 
   var cardsArray = [];
+  var matchCounter = 0;
   var valuesArray = [1,2,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5,6,7,8,9,10,11,12];
+
+  function gameFinished () {
+    $('footer').show();
+    window.setTimeout(resetGame, 2500);
+  }
 
   function randomize(array) {
     var currentItem = array.length, tempValue, randomItem;
@@ -32,7 +38,7 @@ $(document).ready(function(){
     var cardsCompared = $('.card.selected');
     cardsCompared.removeClass('selected equal not-equal');
     cardsArray = [];
-    cardsIds = [];
+    var matchCounter = 0;
   }
 
   function resetOnlyCards() {
@@ -43,6 +49,7 @@ $(document).ready(function(){
   function resetGame() {
     resetCards();
     renderCards();
+    $('footer').hide();
     $('header').show();
   }
 
@@ -52,7 +59,12 @@ $(document).ready(function(){
     if (cardsArray[0] === cardsArray[1]) {
       cardsCompared.addClass('equal');
       window.setTimeout(function(){
-        cardsCompared.addClass('hide')
+        cardsCompared.addClass('hide');
+        if (matchCounter < 11) {
+          ++matchCounter;
+        } else if (matchCounter === 11) {
+            gameFinished();
+        }
       }, 2000);
     } else if (cardsArray[0] !== cardsArray[1]) {
       cardsCompared.addClass('not-equal');

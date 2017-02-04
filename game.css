@@ -13,7 +13,7 @@ body {
   font-weight: 400;
 }
 
-header {
+header, footer {
   background-color: rgba(255,255,255,0.8);
   bottom: 0;
   content: '';
@@ -24,7 +24,7 @@ header {
   z-index: 5;
 }
 
-header h1 {
+header h1, footer h2 {
   background: -moz-linear-gradient(45deg, rgba(0,0,128,1) 10%, rgba(255,0,223,1) 50%, rgba(255,255,0,1) 100%);
   background: -webkit-linear-gradient(45deg, rgba(0,0,128,1) 10%, rgba(255,0,223,1) 50%, rgba(255,255,0,1) 100%);
   background: -o-linear-gradient(45deg, rgba(0,0,128,1) 10%, rgba(255,0,223,1) 50%, rgba(255,255,0,1) 100%);
@@ -46,10 +46,9 @@ header h1 {
   z-index: 100;
 }
 
-header .title {
+header .title, .footer .greeting {
   color: #fff;
   display: block;
-  font-size: 3em;
   text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;
 }
 
@@ -70,6 +69,18 @@ header .start {
   margin: 4% auto 1%;
   padding: 10px 20px;
   text-transform: uppercase;
+}
+
+header .title {
+  font-size: 3em;
+}
+
+footer {
+  display: none;
+}
+
+footer .greeting {
+  font-size: 1.5em;
 }
 
 .options, .options li, .cards, .card {
